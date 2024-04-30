@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for comment in comments %}
+    <p>{{comment.user.username}} | {{comment.content}} | {{comment.likes.count}} likes</p>
+    <a href="{% url 'like_comment' comment.id%}">like</a>
+    <a href="{% url 'edit_comment' comment.id%}">edit</a>
+{%endfor%}
+<form method="POST">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">post</button>
+</form>
+{% endblock %}    
