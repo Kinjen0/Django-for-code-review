@@ -21,10 +21,12 @@ from django.contrib.auth import views as auth_views
 from .import views
 
 urlpatterns = [
+    # Default view is djangos login view with a registration template for login
     path('', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
     path('logout/', views.logout_view, name='logout'),
     path('register/', views.register, name='register'),
     path('chat/', views.chat, name='chat'),
+    # PAth for the edit comments, it takes in a comment id and passes it to the view
     path('edit_comment/<int:comment_id>/', views.edit_comment, name='edit_comment'),
     path('like_comment/<int:comment_id>/', views.like_comment, name='like_comment'),
 ]

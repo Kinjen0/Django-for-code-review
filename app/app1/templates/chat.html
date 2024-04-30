@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
+<!-- For every comment, show its users name, the content, and how many likes it has, then allow for likeing it and editing it -->
 {% for comment in comments %}
     <p>{{comment.user.username}} | {{comment.content}} | {{comment.likes.count}} likes</p>
     <a href="{% url 'like_comment' comment.id%}">like</a>
     <a href="{% url 'edit_comment' comment.id%}">edit</a>
 {%endfor%}
+<!-- Basic form I used everywhere in this-->
 <form method="POST">
     {{ form.as_p }}
     {% csrf_token %}

@@ -124,6 +124,6 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-#login stuff
+#login stuff When we login it will redirect us to chat instead of accounts/something
 LOGIN_REDIRECT_URL = 'chat'
-LOGOUT_REDIRECT_URL = 'chat'
+LOGOUT_REDIRECT_URL = 'login'

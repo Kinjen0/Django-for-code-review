@@ -19,5 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # Link the user to my app, and include its urls, THis is the default link
     path('', include('app1.urls')),
 ]
